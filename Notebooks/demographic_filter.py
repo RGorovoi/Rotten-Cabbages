@@ -3,7 +3,7 @@
 import pandas as pd
 import numpy as np
 
-merged_df = pd.read_csv('Data/clean_parsed_tmdb_5000.csv')
+merged_df = pd.read_csv('../Data/clean_parsed_tmdb_5000.csv')
 C = merged_df['vote_average'].mean()
 print('Mean average rating =', C)  # Mean average rating across all movies
 

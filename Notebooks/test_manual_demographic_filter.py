@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 
 # Cleaned, parsed, merged TMDB dataset
-merged_df = pd.read_csv('Data/clean_parsed_tmdb_5000.csv')
+merged_df = pd.read_csv('../Data/clean_parsed_tmdb_5000.csv')
 
 def demographic_filter(merged_df, min_vote_count=100, min_vote_average=0, genres=None, min_year=None, max_year=None, language=None, 
                        min_runtime=0, max_runtime=350):
