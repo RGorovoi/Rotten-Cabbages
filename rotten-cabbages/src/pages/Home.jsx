@@ -5,8 +5,8 @@ export default function Home() {
   return (
     <>
       <section className="hero">
-        <h1 className="hero-title">Find your next favorite</h1>
         <SearchBar />
+        <p className="hero-tagline">Find your next watch, verifiably natural.</p>
       </section>
       <TrendingCarousel />
     </>
