@@ -78,3 +78,9 @@ Missing packages can be installed with
 npm install <package_name>
 ```
 
+### List of Packages / Libraries Used
+
+```bash
+npm install react-router-dom
+npm install axios
+```
