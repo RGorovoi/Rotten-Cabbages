@@ -54,13 +54,17 @@ body{margin:0; background:var(--bg); color:var(--text); font-family:system-ui,-a
   position:absolute; inset:auto 0 0 0; transform:translateY(8px);
   background:#ffffff; border:1px solid var(--border); border-radius:12px; overflow:hidden;
   box-shadow:0 4px 6px rgba(0,0,0,0.1);
-  max-height:400px; overflow-y:auto;
+  max-height:500px; overflow-y:auto;
+  z-index:100;
 }
 .ac-item{display:flex; gap:12px; align-items:center; padding:10px 12px; cursor:pointer; border-bottom:1px solid #f3f4f6}
 .ac-item:last-child{border-bottom:none}
 .ac-item:hover{background:#f9fafb}
 .poster-skel{width:48px; height:68px; background:#e5e7eb; border-radius:8px; flex-shrink:0}
 .poster-skel.large{width:180px; height:260px}
+.poster-img{width:48px; height:68px; object-fit:cover; border-radius:8px; flex-shrink:0}
+.poster-img.large{width:180px; height:260px}
+.hero-poster{width:180px; height:260px; object-fit:cover; border-radius:12px}
 .ac-text{display:flex; flex-direction:column; flex:1; min-width:0}
 .ac-title{font-weight:600; color:#1f2937}
 .ac-sub{color:var(--muted); font-size:12px}
@@ -82,7 +86,7 @@ body{margin:0; background:var(--bg); color:var(--text); font-family:system-ui,-a
 .carousel .card{scroll-snap-align:start}
 
 /* Cards */
-.card{display:flex; flex-direction:column; background:var(--card); border:1px solid var(--border); border-radius:14px; text-decoration:none; color:inherit; transition:transform 0.2s, box-shadow 0.2s}
+.card{display:flex; flex-direction:column; background:var(--card); border:1px solid var(--border); border-radius:14px; text-decoration:none; color:inherit; transition:transform 0.2s, box-shadow 0.2s; overflow:hidden}
 .card:hover{transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,0.3)}
 .card-body{padding:12px}
 .card-title{font-weight:600; margin:0 0 4px 0; font-size:14px; line-height:1.3}
@@ -94,11 +98,23 @@ body{margin:0; background:var(--bg); color:var(--text); font-family:system-ui,-a
 .movie-hero{display:grid; grid-template-columns:180px 1fr; gap:24px; align-items:start; margin-top:24px; padding:24px; background:var(--card); border-radius:16px; border:1px solid var(--border)}
 .hero-poster{width:180px; height:260px; border-radius:12px; background:var(--bgElev)}
 .movie-title{margin:0 0 8px 0; font-size:28px; font-weight:700}
+.movie-tagline{color:var(--muted); font-style:italic; margin:0 0 12px 0; font-size:16px}
 .movie-rating{display:flex; align-items:center; gap:4px; color:var(--green); font-weight:600; font-size:18px; margin:0 0 12px 0}
 .movie-rating::before{content:"★"; color:var(--green); font-size:20px}
 .movie-genres{display:flex; gap:8px; flex-wrap:wrap; margin:0 0 16px 0}
 .genre-tag{background:var(--green); color:#ffffff; padding:4px 12px; border-radius:12px; font-size:12px; font-weight:500}
+.movie-meta{display:flex; gap:16px; flex-wrap:wrap; margin:0 0 16px 0; color:var(--muted); font-size:14px}
+.meta-item{display:flex; align-items:center}
 .movie-overview{line-height:1.6; color:var(--text); font-size:15px; margin:0}
+.cast-crew-list{display:flex; flex-wrap:wrap; gap:12px; margin-bottom:16px}
+.cast-crew-item{background:var(--bgElev); color:var(--text); padding:8px 16px; border-radius:8px; font-size:14px; border:1px solid var(--border)}
+.show-more-btn{
+  background:var(--accent); color:#ffffff; border:none; padding:10px 20px;
+  border-radius:8px; font-size:14px; font-weight:500; cursor:pointer;
+  transition:background 0.2s; margin-top:8px;
+}
+.show-more-btn:hover{background:#3b82f6}
+.show-more-btn:active{transform:scale(0.98)}
 
 /* Grid for recs */
 .grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(160px,1fr)); gap:16px}

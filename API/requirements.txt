@@ -5,3 +5,5 @@ numpy
 scikit-learn
 rapidfuzz
 tensorflow==2.20.0
+requests
+python-dotenv

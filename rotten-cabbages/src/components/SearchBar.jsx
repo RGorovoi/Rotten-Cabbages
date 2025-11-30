@@ -12,15 +12,20 @@ export default function SearchBar() {
 
   useEffect(() => {
     const h = setTimeout(async () => {
-      if (q.trim().length < 2) { setItems([]); setOpen(false); return; }
+      if (q.trim().length < 2) { 
+        setItems([]); 
+        setOpen(false); 
+        return; 
+      }
       setLoading(true);
       try {
-        const res = await suggestTitles(q.trim(), 8);
+        const res = await suggestTitles(q.trim(), 12);
         setItems(res);
-        setOpen(true);
+        setOpen(res.length > 0);
       } catch (err) {
         console.error("Search error:", err);
         setItems([]);
+        setOpen(false);
       } finally {
         setLoading(false);
       }
@@ -47,7 +52,11 @@ export default function SearchBar() {
         placeholder="Search for any movie..."
         value={q}
         onChange={e => setQ(e.target.value)}
-        onFocus={() => items.length > 0 && setOpen(true)}
+        onFocus={() => {
+          if (q.trim().length >= 2 && items.length > 0) {
+            setOpen(true);
+          }
+        }}
         aria-label="Search for movies"
         aria-expanded={open}
         aria-controls="autocomplete-results"
@@ -72,7 +81,14 @@ export default function SearchBar() {
                 }
               }}
             >
-              <div className="poster-skel" />
+              <img 
+                src={it.poster_url || "/placeholder.png"} 
+                alt={it.title} 
+                className="poster-img"
+                onError={(e) => {
+                  e.target.src = "/placeholder.png";
+                }}
+              />
               <div className="ac-text">
                 <div className="ac-title">{it.title}</div>
                 {it.genres && it.genres.length > 0 && (

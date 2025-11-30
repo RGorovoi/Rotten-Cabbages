@@ -28,7 +28,14 @@ export default function TrendingCarousel() {
         <div className="carousel" role="region" aria-label="Trending carousel">
           {items.map(m => (
             <Link key={m.tmdb_id} to={`/${m.tmdb_id}`} className="card">
-              <div className="poster-skel large" />
+              <img 
+                src={m.poster_url || "/placeholder.png"} 
+                alt={m.title} 
+                className="poster-img large"
+                onError={(e) => {
+                  e.target.src = "/placeholder.png";
+                }}
+              />
               <div className="card-body">
                 <div className="card-title">{m.title}</div>
                 {m.rating && <div className="card-rating">{m.rating}</div>}
