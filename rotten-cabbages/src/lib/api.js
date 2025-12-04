@@ -1,7 +1,15 @@
 import axios from "axios";
 
 const USE_MOCK = import.meta.env.VITE_MOCK === "1";
-const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+
+// Prefer VITE_API_URL if provided. Otherwise:
+// - in production (on Render), default to the deployed API base URL
+// - in development, default to localhost
+const API_BASE_URL =
+  import.meta.env.VITE_API_URL ||
+  (import.meta.env.PROD
+    ? "https://rotten-cabbages.onrender.com"
+    : "http://localhost:8000");
 
 const api = axios.create({ baseURL: API_BASE_URL });
 
