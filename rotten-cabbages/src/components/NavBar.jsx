@@ -8,7 +8,7 @@ export default function NavBar() {
           <img src="/CabbagesLogo3.png" alt="Rotten Cabbages" className="logo-img" />
         </Link>
         <nav className="nav-links">
-          <a href="https://github.com" target="_blank" rel="noreferrer">View on GitHub</a>
+          <a href="https://github.com/RGorovoi/Rotten-Cabbages" target="_blank" rel="noreferrer">View on GitHub</a>
         </nav>
       </div>
     </header>
